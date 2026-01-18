@@ -12,6 +12,9 @@ RUN apt-get update && apt-get install -y \
 RUN python3 -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
+# Configure GPU support
+ENV TORCH_CUDA_ARCH_LIST="9.0;8.9;8.6;8.0"
+
 # Upgrade pip / setuptools / wheel
 RUN pip install --upgrade pip setuptools wheel packaging triton
 
@@ -54,17 +57,9 @@ RUN apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/*
 
 # Copy the venv from builder
 COPY --from=builder /opt/venv /opt/venv
-
-# Configure python venv
 ENV PATH="/opt/venv/bin:$PATH"
 
 RUN pip list
-
-# Copy the built wheel from builder stage
-COPY --from=builder /SageAttention/dist/*.whl /SageAttention/
-
-# Install SageAttention wheel
-RUN pip install /SageAttention/*.whl
 
 # Install comfy-cli
 RUN pip install comfy-cli
