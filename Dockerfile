@@ -41,6 +41,15 @@ ENV PATH="/opt/venv/bin:${PATH}"
 # Install comfy-cli + dependencies needed by it to install ComfyUI
 RUN uv pip install comfy-cli pip setuptools wheel
 
+# Install ComfyUI
+RUN comfy --workspace /comfyui install --version "${COMFYUI_VERSION}" --nvidia;
+
+# Change working directory to ComfyUI
+WORKDIR /comfyui
+
+# Support for the network volume
+ADD src/extra_model_paths.yaml ./
+
 # Install triton
 RUN pip install triton
 
@@ -54,15 +63,6 @@ RUN uv pip install runpod requests websocket-client
 
 # List all installed packages
 RUN pip list
-
-# Install ComfyUI
-RUN comfy --workspace /comfyui install --version "${COMFYUI_VERSION}" --nvidia;
-
-# Change working directory to ComfyUI
-WORKDIR /comfyui
-
-# Support for the network volume
-ADD src/extra_model_paths.yaml ./
 
 # Go back to the root
 WORKDIR /
