@@ -39,24 +39,24 @@ RUN wget -qO- https://astral.sh/uv/install.sh | sh \
 ENV PATH="/opt/venv/bin:${PATH}"
 
 # Upgrade pip / setuptools / wheel
-RUN uv pip install --upgrade pip setuptools wheel packaging triton
+RUN pip install --upgrade pip setuptools wheel packaging triton
 
 # Install PyTorch for CUDA 12.9
-RUN uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu129
+RUN pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu129
 
 # Install comfy-cli
-RUN uv pip install comfy-cli
+RUN pip install comfy-cli
 
 # Install SageAttention
 RUN git clone https://github.com/thu-ml/SageAttention.git
 WORKDIR /SageAttention
-RUN uv run setup.py install
+RUN python setup.py install
 
 # List all installed packages
-RUN uv pip list
+RUN pip list
 
 # Install ComfyUI
-RUN comfy --workspace /comfyui install --version "${COMFYUI_VERSION}" --nvidia;
+RUN comfy --workspace /comfyui install --version "${COMFYUI_VERSION}" --cuda-version 12.9 --nvidia;
 
 # Change working directory to ComfyUI
 WORKDIR /comfyui
@@ -68,7 +68,7 @@ ADD src/extra_model_paths.yaml ./
 WORKDIR /
 
 # Install Python runtime dependencies for the handler
-RUN uv pip install runpod requests websocket-client
+RUN pip install runpod requests websocket-client
 
 # Copy helper script to switch Manager network mode at container start
 COPY scripts/comfy-manager-set-mode.sh /usr/local/bin/comfy-manager-set-mode
