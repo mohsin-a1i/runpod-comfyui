@@ -1,6 +1,6 @@
 FROM nvidia/cuda:12.9.1-cudnn-runtime-ubuntu24.04
 
-ARG COMFYUI_VERSION=latest
+ARG COMFYUI_VERSION=0.9.2
 
 # Prevents prompts from packages asking for user input during installation
 ENV DEBIAN_FRONTEND=noninteractive
@@ -38,8 +38,16 @@ RUN wget -qO- https://astral.sh/uv/install.sh | sh \
 # Use the virtual environment for all subsequent commands
 ENV PATH="/opt/venv/bin:${PATH}"
 
-# Install comfy-cli + dependencies needed by it to install ComfyUI
-RUN uv pip install comfy-cli pip setuptools wheel
+# Install comfy-cli + dependencies
+RUN uv pip install --upgrade pip setuptools wheel triton torch torchvision torchaudio comfy-cli --index-url https://download.pytorch.org/whl/cu129
+
+# Install SageAttention
+RUN git clone https://github.com/thu-ml/SageAttention.git
+WORKDIR /SageAttention
+RUN uv python setup.py install
+
+# List all installed packages
+RUN uv pip list
 
 # Install ComfyUI
 RUN comfy --workspace /comfyui install --version "${COMFYUI_VERSION}" --nvidia;
@@ -50,19 +58,8 @@ WORKDIR /comfyui
 # Support for the network volume
 ADD src/extra_model_paths.yaml ./
 
-# Install triton
-RUN pip install triton
-
-# Install SageAttention
-RUN git clone https://github.com/thu-ml/SageAttention.git
-WORKDIR /SageAttention
-RUN python setup.py install
-
 # Install Python runtime dependencies for the handler
 RUN uv pip install runpod requests websocket-client
-
-# List all installed packages
-RUN pip list
 
 # Go back to the root
 WORKDIR /
