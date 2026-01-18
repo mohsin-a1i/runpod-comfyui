@@ -38,10 +38,10 @@ RUN wget -qO- https://astral.sh/uv/install.sh | sh \
 # Use the virtual environment for all subsequent commands
 ENV PATH="/opt/venv/bin:${PATH}"
 
-# Install comfy-cli + dependencies
-RUN uv pip install --upgrade pip setuptools wheel triton torch torchvision torchaudio comfy-cli --index-url https://download.pytorch.org/whl/cu129
-
-# Install SageAttention
+# Install comfy-cli and its dependencies
+RUN uv pip install --upgrade pip setuptools wheel
+RUN uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu129
+RUN uv pip install triton comfy-cli
 RUN git clone https://github.com/thu-ml/SageAttention.git
 WORKDIR /SageAttention
 RUN uv python setup.py install
