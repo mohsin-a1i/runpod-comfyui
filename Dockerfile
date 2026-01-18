@@ -29,28 +29,19 @@ RUN apt-get update && apt-get install -y \
 # Clean up to reduce image size
 RUN apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/*
 
-# Install uv (latest) using official installer and create isolated venv
-RUN wget -qO- https://astral.sh/uv/install.sh | sh \
-    && ln -s /root/.local/bin/uv /usr/local/bin/uv \
-    && ln -s /root/.local/bin/uvx /usr/local/bin/uvx \
-    && uv venv /opt/venv
-
-# Use the virtual environment for all subsequent commands
-ENV PATH="/opt/venv/bin:${PATH}"
-
 # Upgrade pip / setuptools / wheel
 RUN pip install --upgrade pip setuptools wheel packaging triton
 
 # Install PyTorch for CUDA 12.9
 RUN pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu129
 
-# Install comfy-cli
-RUN pip install comfy-cli
-
 # Install SageAttention
 RUN git clone https://github.com/thu-ml/SageAttention.git
 WORKDIR /SageAttention
 RUN python setup.py install
+
+# Install comfy-cli
+RUN pip install comfy-cli
 
 # List all installed packages
 RUN pip list
