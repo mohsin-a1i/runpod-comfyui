@@ -14,10 +14,10 @@ RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 ENV PATH="/root/.local/bin:$PATH"
 
 # Install python
-RUN uv python install cpython-3.12.12-linux-aarch64-gnu
+RUN uv python install 3.12
 
 # Create python venv
-RUN uv venv -p cpython-3.12.12-linux-aarch64-gnu
+RUN uv venv -p 3.12
 
 # Upgrade pip / setuptools / wheel
 RUN uv pip install --upgrade pip setuptools wheel packaging triton
