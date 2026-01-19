@@ -1,7 +1,7 @@
 {
   "84": {
     "inputs": {
-      "clip_name": "umt5-xxl-enc-bf16.safetensors",
+      "clip_name": "umt5_xxl_fp16.safetensors",
       "type": "wan",
       "device": "default"
     },

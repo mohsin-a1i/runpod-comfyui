@@ -1,7 +1,7 @@
 #
 # Compilation Stage
 #
-FROM nvidia/cuda:12.9.1-cudnn-devel-ubuntu24.04 as builder
+FROM nvidia/cuda:12.9.1-cudnn-devel-ubuntu24.04 AS builder
 
 # Install git and other tools
 RUN apt update && apt install -y \
@@ -41,10 +41,14 @@ FROM nvidia/cuda:12.9.1-cudnn-runtime-ubuntu24.04
 # Speed up some cmake builds
 ENV CMAKE_BUILD_PARALLEL_LEVEL=8
 
+# Persistent Triton kernels
+ENV TRITON_HOME=/runpod-volume/.triton
+
 # Install git and other tools
 RUN apt-get update && apt-get install -y \
     curl \
     git \
+    build-essential \
     libgl1 \
     libglib2.0-0 \
     libsm6 \
