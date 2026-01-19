@@ -63,7 +63,7 @@ RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 ENV PATH="/root/.local/bin:$PATH"
 
 # Install python
-RUN uv python install 3.13
+RUN uv python install 3.14
 
 WORKDIR /app
 
