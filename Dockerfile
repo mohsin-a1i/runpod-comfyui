@@ -1,7 +1,7 @@
 #
 # Compilation Stage
 #
-FROM nvidia/cuda:12.9.1-cudnn-devel-ubuntu24.04 AS builder
+FROM nvidia/cuda:13.1.0-devel-ubuntu24.04 AS builder
 
 # Install git and other tools
 RUN apt update && apt install -y \
@@ -38,7 +38,7 @@ RUN uv run --active setup.py install
 #
 # Application Stage
 #
-FROM nvidia/cuda:12.9.1-cudnn-runtime-ubuntu24.04
+FROM nvidia/cuda:13.1.0-runtime-ubuntu24.04
 
 # Speed up some cmake builds
 ENV CMAKE_BUILD_PARALLEL_LEVEL=8
@@ -79,7 +79,7 @@ RUN uv pip install comfy-cli runpod requests websocket-client
 RUN uv cache clean
 
 # Install ComfyUI
-RUN /usr/bin/yes | comfy --workspace /app/comfyui install --version 0.9.2 --skip-manager --cuda-version 12.9 --nvidia;
+RUN /usr/bin/yes | comfy --workspace /app/comfyui install --version 0.9.2 --skip-manager --skip-torch-or-directml --nvidia;
 
 # Support for the network volume
 COPY src/extra_model_paths.yaml /app/comfyui/
