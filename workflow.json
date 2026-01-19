@@ -171,8 +171,8 @@
   },
   "98": {
     "inputs": {
-      "width": 1024,
-      "height": 1344,
+      "width": 720,
+      "height": 945,
       "length": 81,
       "batch_size": 1,
       "positive": [
@@ -253,7 +253,7 @@
   },
   "108": {
     "inputs": {
-      "filename_prefix": "video/ComfyUI",
+      "filename_prefix": "Wan2_2",
       "format": "auto",
       "codec": "auto",
       "video": [
