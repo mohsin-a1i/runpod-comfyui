@@ -20,7 +20,7 @@ ENV VIRTUAL_ENV=/.venv
 RUN uv pip install --upgrade pip setuptools wheel packaging triton
 
 # Install PyTorch for CUDA 12.9
-RUN uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu129
+RUN uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu131
 
 # Clone SageAttention
 RUN git clone https://github.com/thu-ml/SageAttention.git
