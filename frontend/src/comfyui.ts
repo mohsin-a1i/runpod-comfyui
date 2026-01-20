@@ -30,7 +30,7 @@ export async function imageToVideo(base64Image: string, onVideo: (base64Video: s
 }
 
 async function manageJob(jobId: string, onVideo: (base64Video: string) => void) {
-    const response = await fetch(import.meta.env.VITE_RUNPOD_SERVER_URL + jobId, {
+    const response = await fetch(import.meta.env.VITE_RUNPOD_SERVER_URL + "status/" + jobId, {
         method: "GET",
         headers,
     })
