@@ -26,7 +26,8 @@ if [ "$SERVE_API_LOCALLY" == "true" ]; then
     echo "worker-comfyui: Starting RunPod Handler"
     python -u handler.py --rp_serve_api --rp_api_host=0.0.0.0
 else
-    python -u comfyui/main.py --use-sage-attention \
+    python -u comfyui/main.py --highvram \
+        --use-sage-attention \
         --disable-auto-launch \
         --disable-metadata \
         --output-directory "${COMFY_OUTPUT_DIR}" \
