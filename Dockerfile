@@ -91,6 +91,19 @@ RUN chmod +x /usr/local/bin/comfy-node-install
 # Install custom nodes using comfy-cli
 RUN comfy-node-install comfyui-kjnodes comfyui-videohelpersuite ComfyUI-WanVideoWrapper
 
+# Download Wan video generation models
+RUN comfy model download --url https://huggingface.co/Kijai/WanVideo_comfy_fp8_scaled/resolve/main/I2V/Wan2_2-I2V-A14B-HIGH_fp8_e4m3fn_scaled_KJ.safetensors --relative-path models/diffusion_models --filename Wan2_2-I2V-A14B-HIGH_fp8_e4m3fn_scaled_KJ.safetensors
+
+RUN comfy model download --url https://huggingface.co/Kijai/WanVideo_comfy_fp8_scaled/resolve/main/I2V/Wan2_2-I2V-A14B-LOW_fp8_e4m3fn_scaled_KJ.safetensors --relative-path models/diffusion_models --filename Wan2_2-I2V-A14B-LOW_fp8_e4m3fn_scaled_KJ.safetensors
+
+RUN comfy model download --url https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/Wan2_1_VAE_bf16.safetensors --relative-path models/vae --filename Wan2_1_VAE_bf16.safetensors
+
+RUN comfy model download --url https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/umt5-xxl-enc-fp8_e4m3fn.safetensors --relative-path models/clip --filename umt5_xxl_fp8_e4m3fn_scaled
+
+RUN comfy model download --url https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/LoRAs/Stable-Video-Infinity/v2.0/SVI_v2_PRO_Wan2.2-I2V-A14B_HIGH_lora_rank_128_fp16.safetensors --relative-path models/loras --filename SVI_v2_PRO_Wan2.2-I2V-A14B_HIGH_lora_rank_128_fp16.safetensors
+
+RUN comfy model download --url https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/LoRAs/Stable-Video-Infinity/v2.0/SVI_v2_PRO_Wan2.2-I2V-A14B_LOW_lora_rank_128_fp16.safetensors --relative-path models/loras --filename SVI_v2_PRO_Wan2.2-I2V-A14B_LOW_lora_rank_128_fp16.safetensors
+
 # Copy helper script to switch Comfy Manager network mode at container start
 COPY backend/scripts/comfy-manager-set-mode.sh /usr/local/bin/comfy-manager-set-mode
 RUN chmod +x /usr/local/bin/comfy-manager-set-mode
