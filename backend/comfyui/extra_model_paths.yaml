@@ -1,6 +1,5 @@
 runpod_worker_comfy:
   base_path: /runpod-volume
-  is_default: true
   checkpoints: models/checkpoints/
   diffusion_models: models/diffusion_models/
   unet: models/unet/
