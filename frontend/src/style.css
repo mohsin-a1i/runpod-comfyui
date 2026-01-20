@@ -1,0 +1,112 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  color: #efefef;
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type="file"] + label {
+  background-color: #70b000;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+input[type="file"] + label:hover {
+  background-color: #558600;
+}
+
+button {
+  background-color: #70b000;
+  color: #efefef;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+button:hover, button:disabled {
+  background-color: #558600;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+.hidden {
+  display: none;
+}
+
+.upload-area {
+  width: 80%;
+  min-width: 300px;
+  max-width: 600px;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23d6d6d6' stroke-width='2' stroke-dasharray='8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+}
+
+.upload-area .view {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.upload-area .active-view {
+  display: none;
+}
+
+.upload-area.active .default-view {
+  display: none;
+}
+
+.upload-area.active .active-view {
+  display: flex;
+}
+
+.upload-area .header {
+  margin-top: 24px;
+}
+
+.upload-area .action {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.upload-area .hint {
+  margin-top: 16px;
+  color: #d6d6d6;
+  font-size: small;
+}
+
+.floating-action {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  padding: 8px;
+}
+
+#start-image-preview, #video-preview {
+  width: 80%;
+  min-width: 300px;
+  max-width: 600px;
+  object-fit: contain;
+  border-radius: 24px;
+}

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Runpod ComfyUI</title>
+</head>
+
+<body>
+  <div id="start-image-area" class="upload-area">
+    <div class="view default-view">
+      <i class="fa-solid fa-file-image fa-3x"></i>
+      <header class="header">Drag Start Image Here</header>
+      <div class="action">
+        <span>or</span>
+        <input id="start-image-input" type="file" accept="image/*" hidden>
+        <label for="start-image-input">Browse</label>
+      </div>
+      <span class="hint">Supports: JPEG, JPG, PNG</span>
+    </div>
+    <div class="view active-view">
+      <i class="fa-solid fa-file-arrow-down fa-3x"></i>
+      <header class="header">Drop Image</header>
+      <span class="hint">Supports: JPEG, JPG, PNG</span>
+    </div>
+  </div>
+
+  <img id="start-image-preview">
+
+  <video id="video-preview" class="hidden" controls></video>
+
+  <button id="generate-button" class="floating-action hidden">
+    <i class="fa-solid fa-play"></i>
+  </button>
+</body>
+<script type="module" src="/src/main.ts"></script>
+
+</html>

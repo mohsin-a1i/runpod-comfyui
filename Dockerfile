@@ -82,21 +82,21 @@ RUN uv cache clean
 RUN /usr/bin/yes | comfy --workspace /app/comfyui install --version 0.9.2 --skip-torch-or-directml --nvidia;
 
 # Support for the network volume
-COPY src/extra_model_paths.yaml /app/comfyui/
+COPY backend/comfyui/extra_model_paths.yaml /app/comfyui/
 
 # Add script to install custom nodes
-COPY scripts/comfy-node-install.sh /usr/local/bin/comfy-node-install
+COPY backend/scripts/comfy-node-install.sh /usr/local/bin/comfy-node-install
 RUN chmod +x /usr/local/bin/comfy-node-install
 
 # Install custom nodes using comfy-cli
 RUN comfy-node-install comfyui-kjnodes comfyui-videohelpersuite ComfyUI-WanVideoWrapper
 
 # Copy helper script to switch Comfy Manager network mode at container start
-COPY scripts/comfy-manager-set-mode.sh /usr/local/bin/comfy-manager-set-mode
+COPY backend/scripts/comfy-manager-set-mode.sh /usr/local/bin/comfy-manager-set-mode
 RUN chmod +x /usr/local/bin/comfy-manager-set-mode
 
 # Add application code and scripts
-COPY start.sh src/network_volume.py src/handler.py /app/
+COPY backend/start.sh backend/network_volume.py backend/handler.py /app/
 RUN chmod +x /app/start.sh
 
 # Set the default command to run when starting the container
