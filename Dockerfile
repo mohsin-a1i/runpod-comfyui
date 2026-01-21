@@ -51,7 +51,7 @@ RUN uv python install 3.12 && \
 
 # Add helper scripts
 COPY backend/scripts/ /usr/local/bin/
-RUN chmod +x /usr/local/bin/comfy-manager-set-mode /usr/local/bin/comfy-node-install
+RUN chmod +x /usr/local/bin/comfy-manager-set-mode.sh /usr/local/bin/comfy-node-install.sh
 
 # Install ComfyUI
 RUN /usr/bin/yes | comfy --workspace /app/comfyui install --version 0.9.2 --skip-torch-or-directml --nvidia && \
