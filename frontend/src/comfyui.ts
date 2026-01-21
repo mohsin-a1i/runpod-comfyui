@@ -1,4 +1,4 @@
-import workflow from "./workflow-wan22-svi.json";
+import workflow from "./workflow.json";
 
 const headers = {
     "Content-Type": "application/json",
