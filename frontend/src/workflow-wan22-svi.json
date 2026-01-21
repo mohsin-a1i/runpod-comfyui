@@ -1,0 +1,1283 @@
+{
+  "37": {
+    "inputs": {
+      "unet_name": "Wan2_2-I2V-A14B-HIGH_SVI_consistent_face_nsfw_fp8.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model high"
+    }
+  },
+  "56": {
+    "inputs": {
+      "unet_name": "Wan2_2-I2V-A14B-LOW_SVI_consistent_face_nsfw_fp8.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model low"
+    }
+  },
+  "62": {
+    "inputs": {
+      "image": "input.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "193": {
+    "inputs": {
+      "value": 1
+    },
+    "class_type": "INTConstant",
+    "_meta": {
+      "title": "no lightning end step"
+    }
+  },
+  "194": {
+    "inputs": {
+      "value": 4
+    },
+    "class_type": "INTConstant",
+    "_meta": {
+      "title": "lightning high end step"
+    }
+  },
+  "195": {
+    "inputs": {
+      "value": 7
+    },
+    "class_type": "INTConstant",
+    "_meta": {
+      "title": "total step"
+    }
+  },
+  "270": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:359",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora lightning high"
+    }
+  },
+  "272": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:365",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora lightning low"
+    }
+  },
+  "273": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:365",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora lightning low"
+    }
+  },
+  "274": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:359",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora lightning high"
+    }
+  },
+  "275": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:359",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora lightning high"
+    }
+  },
+  "276": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:365",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora lightning low"
+    }
+  },
+  "314": {
+    "inputs": {
+      "value": 4
+    },
+    "class_type": "FloatConstant",
+    "_meta": {
+      "title": "cfg first ksampler without lightning"
+    }
+  },
+  "325": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:366",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora no lightning high"
+    }
+  },
+  "326": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:366",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora no lightning high"
+    }
+  },
+  "327": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:366",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora no lightning high"
+    }
+  },
+  "348": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:366",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora no lightning high"
+    }
+  },
+  "349": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:359",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora lightning high"
+    }
+  },
+  "350": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:365",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora lightning low"
+    }
+  },
+  "396": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:366",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora no lightning high"
+    }
+  },
+  "397": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:365",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora lightning low"
+    }
+  },
+  "398": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:359",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora lightning high"
+    }
+  },
+  "410": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:366",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora no lightning high"
+    }
+  },
+  "411": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:365",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora lightning low"
+    }
+  },
+  "412": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:359",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora lightning high"
+    }
+  },
+  "424": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:366",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora no lightning high"
+    }
+  },
+  "425": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:365",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora lightning low"
+    }
+  },
+  "426": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:359",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora lightning high"
+    }
+  },
+  "438": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:366",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora no lightning high"
+    }
+  },
+  "439": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:365",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora lightning low"
+    }
+  },
+  "440": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:359",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora lightning high"
+    }
+  },
+  "452": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:366",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora no lightning high"
+    }
+  },
+  "453": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:365",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora lightning low"
+    }
+  },
+  "454": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:359",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora lightning high"
+    }
+  },
+  "466": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:366",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora no lightning high"
+    }
+  },
+  "467": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:365",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora lightning low"
+    }
+  },
+  "468": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:359",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora lightning high"
+    }
+  },
+  "480": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:366",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora no lightning high"
+    }
+  },
+  "481": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:365",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora lightning low"
+    }
+  },
+  "482": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:359",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora lightning high"
+    }
+  },
+  "494": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:366",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora no lightning high"
+    }
+  },
+  "495": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:365",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora lightning low"
+    }
+  },
+  "496": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "368:359",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "lora lightning high"
+    }
+  },
+  "521": {
+    "inputs": {
+      "fps": 16,
+      "images": [
+        "497:343",
+        2
+      ]
+    },
+    "class_type": "CreateVideo",
+    "_meta": {
+      "title": "Create Video"
+    }
+  },
+  "522": {
+    "inputs": {
+      "filename_prefix": "Wan22_SVI",
+      "format": "mp4",
+      "codec": "h264",
+      "video": [
+        "521",
+        0
+      ]
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "Save Video"
+    }
+  },
+  "523": {
+    "inputs": {
+      "width": 720,
+      "height": 950,
+      "upscale_method": "lanczos",
+      "keep_proportion": "crop",
+      "pad_color": "0, 0, 0",
+      "crop_position": "center",
+      "divisible_by": 2,
+      "device": "cpu",
+      "image": [
+        "62",
+        0
+      ]
+    },
+    "class_type": "ImageResizeKJv2",
+    "_meta": {
+      "title": "Resize Image v2"
+    }
+  },
+  "368:366": {
+    "inputs": {
+      "lora_name": "SVI_v2_PRO_Wan2.2-I2V-A14B_HIGH_lora_rank_128_fp16.safetensors",
+      "strength_model": 1,
+      "model": [
+        "368:364",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "svi pro high"
+    }
+  },
+  "368:356": {
+    "inputs": {
+      "lora_name": "SVI_v2_PRO_Wan2.2-I2V-A14B_LOW_lora_rank_128_fp16.safetensors",
+      "strength_model": 1,
+      "model": [
+        "368:363",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "svi pro low"
+    }
+  },
+  "368:359": {
+    "inputs": {
+      "lora_name": "Wan_2_2_I2V_A14B_HIGH_lightx2v_MoE_distill_lora_rank_64_bf16.safetensors",
+      "strength_model": 1,
+      "model": [
+        "368:366",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "lightning high"
+    }
+  },
+  "368:365": {
+    "inputs": {
+      "lora_name": "wan2.2_i2v_A14b_low_noise_lora_rank64_lightx2v_4step_1022.safetensors",
+      "strength_model": 1,
+      "model": [
+        "368:356",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "lightning low"
+    }
+  },
+  "368:355": {
+    "inputs": {
+      "clip_name": "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "type": "wan",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load CLIP"
+    }
+  },
+  "368:353": {
+    "inputs": {
+      "vae_name": "wan_2.1_vae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "368:364": {
+    "inputs": {
+      "shift": 8,
+      "model": [
+        "368:361",
+        0
+      ]
+    },
+    "class_type": "ModelSamplingSD3",
+    "_meta": {
+      "title": "ModelSamplingSD3"
+    }
+  },
+  "368:363": {
+    "inputs": {
+      "enable_fp16_accumulation": true,
+      "model": [
+        "368:362",
+        0
+      ]
+    },
+    "class_type": "ModelPatchTorchSettings",
+    "_meta": {
+      "title": "Model Patch Torch low"
+    }
+  },
+  "368:362": {
+    "inputs": {
+      "sage_attention": "auto",
+      "allow_compile": false,
+      "model": [
+        "56",
+        0
+      ]
+    },
+    "class_type": "PathchSageAttentionKJ",
+    "_meta": {
+      "title": "Patch Sage Attention KJ"
+    }
+  },
+  "368:361": {
+    "inputs": {
+      "enable_fp16_accumulation": true,
+      "model": [
+        "368:360",
+        0
+      ]
+    },
+    "class_type": "ModelPatchTorchSettings",
+    "_meta": {
+      "title": "Model Patch Torch high"
+    }
+  },
+  "368:360": {
+    "inputs": {
+      "sage_attention": "auto",
+      "allow_compile": false,
+      "model": [
+        "37",
+        0
+      ]
+    },
+    "class_type": "PathchSageAttentionKJ",
+    "_meta": {
+      "title": "Patch Sage Attention KJ"
+    }
+  },
+  "372:190": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": [
+        "372:144",
+        0
+      ],
+      "steps": [
+        "195",
+        0
+      ],
+      "cfg": [
+        "314",
+        0
+      ],
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "start_at_step": 0,
+      "end_at_step": [
+        "193",
+        0
+      ],
+      "return_with_leftover_noise": "enable",
+      "model": [
+        "325",
+        0
+      ],
+      "positive": [
+        "372:241",
+        0
+      ],
+      "negative": [
+        "372:241",
+        1
+      ],
+      "latent_image": [
+        "372:241",
+        2
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler (Advanced) just svi"
+    }
+  },
+  "372:6": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "368:355",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Positive Prompt)"
+    }
+  },
+  "372:7": {
+    "inputs": {
+      "text": "色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走, 说话, 说吧, 唱歌, 猫\n",
+      "clip": [
+        "368:355",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Negative Prompt)"
+    }
+  },
+  "372:191": {
+    "inputs": {
+      "add_noise": "disable",
+      "noise_seed": [
+        "372:144",
+        0
+      ],
+      "steps": [
+        "195",
+        0
+      ],
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "start_at_step": [
+        "193",
+        0
+      ],
+      "end_at_step": [
+        "194",
+        0
+      ],
+      "return_with_leftover_noise": "enable",
+      "model": [
+        "275",
+        0
+      ],
+      "positive": [
+        "372:241",
+        0
+      ],
+      "negative": [
+        "372:241",
+        1
+      ],
+      "latent_image": [
+        "372:190",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler (Advanced) svi lightning high"
+    }
+  },
+  "372:109": {
+    "inputs": {
+      "pixels": [
+        "523",
+        0
+      ],
+      "vae": [
+        "368:353",
+        0
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE Encode"
+    }
+  },
+  "372:8": {
+    "inputs": {
+      "samples": [
+        "372:192",
+        0
+      ],
+      "vae": [
+        "368:353",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "372:144": {
+    "inputs": {
+      "seed": 315759798112183
+    },
+    "class_type": "Seed (rgthree)",
+    "_meta": {
+      "title": "Seed (rgthree)"
+    }
+  },
+  "372:241": {
+    "inputs": {
+      "length": 81,
+      "motion_latent_count": 0,
+      "positive": [
+        "372:6",
+        0
+      ],
+      "negative": [
+        "372:7",
+        0
+      ],
+      "anchor_samples": [
+        "372:109",
+        0
+      ]
+    },
+    "class_type": "WanImageToVideoSVIPro",
+    "_meta": {
+      "title": "WanImageToVideoSVIPro"
+    }
+  },
+  "372:192": {
+    "inputs": {
+      "add_noise": "disable",
+      "noise_seed": [
+        "372:144",
+        0
+      ],
+      "steps": [
+        "195",
+        0
+      ],
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "start_at_step": [
+        "194",
+        0
+      ],
+      "end_at_step": 1000,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "276",
+        0
+      ],
+      "positive": [
+        "372:241",
+        0
+      ],
+      "negative": [
+        "372:241",
+        1
+      ],
+      "latent_image": [
+        "372:191",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler (Advanced) svi lightning low"
+    }
+  },
+  "497:343": {
+    "inputs": {
+      "overlap": 5,
+      "overlap_side": "source",
+      "overlap_mode": "linear_blend",
+      "source_images": [
+        "372:8",
+        0
+      ],
+      "new_images": [
+        "497:384",
+        0
+      ]
+    },
+    "class_type": "ImageBatchExtendWithOverlap",
+    "_meta": {
+      "title": "Image Batch Extend With Overlap"
+    }
+  },
+  "497:377": {
+    "inputs": {
+      "text": "色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走, 说话, 说吧, 唱歌, 猫\n",
+      "clip": [
+        "368:355",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Negative Prompt)"
+    }
+  },
+  "497:379": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "368:355",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Positive Prompt)"
+    }
+  },
+  "497:380": {
+    "inputs": {
+      "length": 81,
+      "motion_latent_count": 1,
+      "positive": [
+        "497:379",
+        0
+      ],
+      "negative": [
+        "497:377",
+        0
+      ],
+      "anchor_samples": [
+        "372:109",
+        0
+      ],
+      "prev_samples": [
+        "372:109",
+        0
+      ]
+    },
+    "class_type": "WanImageToVideoSVIPro",
+    "_meta": {
+      "title": "WanImageToVideoSVIPro"
+    }
+  },
+  "497:381": {
+    "inputs": {
+      "add_noise": "disable",
+      "noise_seed": [
+        "497:383",
+        0
+      ],
+      "steps": [
+        "195",
+        0
+      ],
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "start_at_step": [
+        "193",
+        0
+      ],
+      "end_at_step": [
+        "194",
+        0
+      ],
+      "return_with_leftover_noise": "enable",
+      "model": [
+        "496",
+        0
+      ],
+      "positive": [
+        "497:380",
+        0
+      ],
+      "negative": [
+        "497:380",
+        1
+      ],
+      "latent_image": [
+        "497:382",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler (Advanced) svi lightning high"
+    }
+  },
+  "497:382": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": [
+        "497:383",
+        0
+      ],
+      "steps": [
+        "195",
+        0
+      ],
+      "cfg": [
+        "314",
+        0
+      ],
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "start_at_step": 0,
+      "end_at_step": [
+        "193",
+        0
+      ],
+      "return_with_leftover_noise": "enable",
+      "model": [
+        "494",
+        0
+      ],
+      "positive": [
+        "497:380",
+        0
+      ],
+      "negative": [
+        "497:380",
+        1
+      ],
+      "latent_image": [
+        "497:380",
+        2
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler (Advanced) just svi"
+    }
+  },
+  "497:383": {
+    "inputs": {
+      "seed": 315759798112477
+    },
+    "class_type": "Seed (rgthree)",
+    "_meta": {
+      "title": "Seed (rgthree)"
+    }
+  },
+  "497:384": {
+    "inputs": {
+      "samples": [
+        "497:378",
+        0
+      ],
+      "vae": [
+        "368:353",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "497:378": {
+    "inputs": {
+      "add_noise": "disable",
+      "noise_seed": [
+        "497:383",
+        0
+      ],
+      "steps": [
+        "195",
+        0
+      ],
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "start_at_step": [
+        "194",
+        0
+      ],
+      "end_at_step": 1000,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "495",
+        0
+      ],
+      "positive": [
+        "497:380",
+        0
+      ],
+      "negative": [
+        "497:380",
+        1
+      ],
+      "latent_image": [
+        "497:381",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler (Advanced) svi lightning low"
+    }
+  }
+}
