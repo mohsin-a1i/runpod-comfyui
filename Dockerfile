@@ -66,8 +66,8 @@ COPY backend/start.sh backend/network_volume.py backend/handler.py .
 RUN chmod +x start.sh
 
 # Download Wan video generation models
-RUN curl -fL -o comfyui/models/diffusion_models/Wan2_2-I2V-A14B-HIGH_SVI_consistent_face_nsfw_fp8.safetensors "https://civitai.com/api/download/models/2609141?type=Model&format=SafeTensor&size=full&fp=fp16"
-RUN curl -fL -o comfyui/models/diffusion_models/Wan2_2-I2V-A14B-LOW_SVI_consistent_face_nsfw_fp8.safetensors "https://civitai.com/api/download/models/2609148?type=Model&format=SafeTensor&size=full&fp=fp8"
+RUN comfy model download --relative-path models/diffusion_models --filename Wan2_2-I2V-A14B-HIGH_SVI_consistent_face_nsfw_fp8.safetensors --url  "https://civitai.com/api/download/models/2609141?type=Model&format=SafeTensor&size=full&fp=fp16"
+RUN comfy model download --relative-path models/diffusion_models --filename Wan2_2-I2V-A14B-LOW_SVI_consistent_face_nsfw_fp8.safetensors --url "https://civitai.com/api/download/models/2609148?type=Model&format=SafeTensor&size=full&fp=fp8"
 # RUN curl -fL -o comfyui/models/vae/wan_2.1_vae.safetensors "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/vae/wan_2.1_vae.safetensors"
 # RUN curl -fL -o comfyui/models/clip/umt5_xxl_fp8_e4m3fn_scaled.safetensors "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors"
 # RUN curl -fL -o comfyui/models/loras/Wan_2_2_I2V_A14B_HIGH_lightx2v_MoE_distill_lora_rank_64_bf16.safetensors "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/LoRAs/Wan22_Lightx2v/Wan_2_2_I2V_A14B_HIGH_lightx2v_MoE_distill_lora_rank_64_bf16.safetensors"
