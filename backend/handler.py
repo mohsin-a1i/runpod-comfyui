@@ -599,7 +599,6 @@ def handler(job):
                 out = ws.recv()
                 if isinstance(out, str):
                     message = json.loads(out)
-                    json.dumps(message, indent=2)
                     if message.get("type") == "executing":
                         data = message.get("data", {})
                         if (

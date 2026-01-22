@@ -54,9 +54,6 @@ RUN /usr/bin/yes | comfy --workspace comfyui install --version 0.9.2 --skip-torc
 comfy node install comfyui-kjnodes rgthree-comfy
 COPY workflows/ comfyui/user/default/workflows/
 
-# Copy Wan video generation models
-COPY models/ comfyui/models/
-
 COPY backend/start.sh start.sh
 RUN chmod +x start.sh
 
