@@ -10,6 +10,26 @@ comfy model download --relative-path models/loras --filename wan2.2_i2v_A14b_low
 comfy model download --relative-path models/loras --filename SVI_v2_PRO_Wan2.2-I2V-A14B_HIGH_lora_rank_128_fp16.safetensors --url "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/LoRAs/Stable-Video-Infinity/v2.0/SVI_v2_PRO_Wan2.2-I2V-A14B_HIGH_lora_rank_128_fp16.safetensors"
 comfy model download --relative-path models/loras --filename SVI_v2_PRO_Wan2.2-I2V-A14B_LOW_lora_rank_128_fp16.safetensors --url "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/LoRAs/Stable-Video-Infinity/v2.0/SVI_v2_PRO_Wan2.2-I2V-A14B_LOW_lora_rank_128_fp16.safetensors"
 
+# Download loras defined by COMFY_LORAS environment variable
+# Expected format: COMFY_LORAS="https://huggingface.co/... https://civitai.com/..."
+if [ -n "$COMFY_LORAS" ]; then
+    for url in $COMFY_LORAS; do
+        [ -z "$url" ] && continue
+
+        echo "Downloading from $url ..."
+
+        comfy model download \
+            --relative-path models/loras \
+            --url "$url"
+
+        if [ $? -ne 0 ]; then
+            echo "Failed to download from $url"
+        else
+            echo "Downloaded successfully from $url"
+        fi
+    done
+fi
+
 # Use libtcmalloc for better memory management
 TCMALLOC="$(ldconfig -p | grep -Po "libtcmalloc.so.\d" | head -n 1)"
 export LD_PRELOAD="${TCMALLOC}"
