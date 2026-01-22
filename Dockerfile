@@ -51,11 +51,8 @@ RUN uv python install 3.12 && \
 
 # Install ComfyUI
 RUN /usr/bin/yes | comfy --workspace comfyui install --version 0.9.2 --skip-torch-or-directml --nvidia && \
-comfy-node-install comfyui-kjnodes rgthree-comfy
+comfy node install comfyui-kjnodes rgthree-comfy
 COPY workflows/ comfyui/user/default/workflows/
-
-COPY backend/start.sh start.sh
-RUN chmod +x start.sh
 
 # Download Wan video generation models
 RUN comfy model download --relative-path models/diffusion_models --filename Wan2_2-I2V-A14B-HIGH_SVI_consistent_face_nsfw_fp8.safetensors --url  "https://civitai.com/api/download/models/2609141?type=Model&format=SafeTensor&size=full&fp=fp16"
@@ -67,5 +64,9 @@ RUN comfy model download --relative-path models/loras --filename wan2.2_i2v_A14b
 RUN comfy model download --relative-path models/loras --filename SVI_v2_PRO_Wan2.2-I2V-A14B_HIGH_lora_rank_128_fp16.safetensors --url "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/LoRAs/Stable-Video-Infinity/v2.0/SVI_v2_PRO_Wan2.2-I2V-A14B_HIGH_lora_rank_128_fp16.safetensors"
 RUN comfy model download --relative-path models/loras --filename SVI_v2_PRO_Wan2.2-I2V-A14B_LOW_lora_rank_128_fp16.safetensors --url "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/LoRAs/Stable-Video-Infinity/v2.0/SVI_v2_PRO_Wan2.2-I2V-A14B_LOW_lora_rank_128_fp16.safetensors"
 
-WORKDIR /app
+COPY backend/start.sh start.sh
+RUN chmod +x start.sh
+
+EXPOSE 8188
+
 CMD ["./start.sh"]
