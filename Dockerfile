@@ -1,33 +1,3 @@
-#
-# Compilation Stage
-#
-FROM nvidia/cuda:12.8.1-cudnn-devel-ubuntu24.04 AS builder
-
-RUN apt update && \
-    apt install -y --no-install-recommends curl git && \
-    apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/*
-
-# Install uv python manager
-RUN curl -LsSf https://astral.sh/uv/install.sh | sh
-ENV PATH="/root/.local/bin:$PATH"
-
-# Setup python environment
-RUN uv venv --python 3.12 --relocatable && \
-    uv pip install --upgrade pip setuptools wheel packaging triton && \
-    uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128 && \
-    uv cache clean
-ENV VIRTUAL_ENV=/.venv
-
-# Compile and install SageAttention
-ENV TORCH_CUDA_ARCH_LIST="8.9;8.6;8.0"
-ENV EXT_PARALLEL=4 NVCC_APPEND_FLAGS="--threads 8" MAX_JOBS=32
-RUN git clone https://github.com/thu-ml/SageAttention.git && \
-    cd SageAttention && \
-    uv run --active setup.py install
-
-#
-# Application Stage
-#
 FROM nvidia/cuda:12.8.1-cudnn-runtime-ubuntu24.04
 
 # Speed up some cmake builds
@@ -42,12 +12,16 @@ RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 ENV PATH="/root/.local/bin:$PATH"
 
 # Configure python environment
-COPY --from=builder /.venv /.venv
+COPY dependencies .
+RUN uv venv --python 3.12 && \
+    uv pip install --upgrade pip && \
+    uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128 && \
+    uv pip install triton && \
+    uv pip install sageattention-2.2.0-cp312-cp312-linux_x86_64.whl --no-deps && \
+    uv pip install comfy-cli && \
+    uv cache clean
 ENV VIRTUAL_ENV=/.venv
 ENV PATH="/.venv/bin:$PATH"
-RUN uv python install 3.12 && \
-    uv pip install comfy-cli runpod requests websocket-client && \
-    uv cache clean
 
 # Install ComfyUI
 RUN /usr/bin/yes | comfy --workspace comfyui install --version 0.9.2 --skip-torch-or-directml --nvidia && \
