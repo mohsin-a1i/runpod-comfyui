@@ -6,7 +6,7 @@ export LD_PRELOAD="${TCMALLOC}"
 
 # Download loras defined by COMFY_LORAS environment variable
 # Expected format: COMFY_LORAS="https://huggingface.co/... https://civitai.com/..."
-if [ -z "$COMFY_LORAS" ]; then
+if [ -n "$COMFY_LORAS" ]; then
     for url in $COMFY_LORAS; do
         [ -z "$url" ] && continue
 
