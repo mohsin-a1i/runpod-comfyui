@@ -1,5 +1,24 @@
 #!/usr/bin/env bash
 
+# Download loras defined by COMFY_LORAS environment variable
+# Expected format: COMFY_LORAS="https://huggingface.co/... https://civitai.com/..."
+if [ -n "$COMFY_LORAS" ]; then
+    for url in $COMFY_LORAS; do
+        [ -z "$url" ] && continue
+
+        echo "Downloading from $url ..."
+
+        if ! comfy model download \
+            --relative-path models/loras \
+            --url "$url"; then
+            echo "ERROR: Failed to download from $url" >&2
+            exit 1
+        fi
+
+        echo "Downloaded successfully from $url"
+    done
+fi
+
 #Download common models for Wan2.2 workflows
 comfy model download --relative-path models/diffusion_models --filename Wan2_2-I2V-A14B-HIGH_SVI_consistent_face_nsfw_fp8.safetensors --url  "https://civitai.com/api/download/models/2609141?type=Model&format=SafeTensor&size=full&fp=fp16"
 comfy model download --relative-path models/diffusion_models --filename Wan2_2-I2V-A14B-LOW_SVI_consistent_face_nsfw_fp8.safetensors --url "https://civitai.com/api/download/models/2609148?type=Model&format=SafeTensor&size=full&fp=fp8"
@@ -9,26 +28,6 @@ comfy model download --relative-path models/loras --filename Wan_2_2_I2V_A14B_HI
 comfy model download --relative-path models/loras --filename wan2.2_i2v_A14b_low_noise_lora_rank64_lightx2v_4step_1022.safetensors --url "https://huggingface.co/lightx2v/Wan2.2-Distill-Loras/resolve/main/wan2.2_i2v_A14b_low_noise_lora_rank64_lightx2v_4step_1022.safetensors"
 comfy model download --relative-path models/loras --filename SVI_v2_PRO_Wan2.2-I2V-A14B_HIGH_lora_rank_128_fp16.safetensors --url "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/LoRAs/Stable-Video-Infinity/v2.0/SVI_v2_PRO_Wan2.2-I2V-A14B_HIGH_lora_rank_128_fp16.safetensors"
 comfy model download --relative-path models/loras --filename SVI_v2_PRO_Wan2.2-I2V-A14B_LOW_lora_rank_128_fp16.safetensors --url "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/LoRAs/Stable-Video-Infinity/v2.0/SVI_v2_PRO_Wan2.2-I2V-A14B_LOW_lora_rank_128_fp16.safetensors"
-
-# Download loras defined by COMFY_LORAS environment variable
-# Expected format: COMFY_LORAS="https://huggingface.co/... https://civitai.com/..."
-if [ -n "$COMFY_LORAS" ]; then
-    for url in $COMFY_LORAS; do
-        [ -z "$url" ] && continue
-
-        echo "Downloading from $url ..."
-
-        comfy model download \
-            --relative-path models/loras \
-            --url "$url"
-
-        if [ $? -ne 0 ]; then
-            echo "Failed to download from $url"
-        else
-            echo "Downloaded successfully from $url"
-        fi
-    done
-fi
 
 # Use libtcmalloc for better memory management
 TCMALLOC="$(ldconfig -p | grep -Po "libtcmalloc.so.\d" | head -n 1)"
