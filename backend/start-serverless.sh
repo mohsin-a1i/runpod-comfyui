@@ -21,7 +21,7 @@ fi
 
 #Download common models for Wan2.2 workflows
 comfy model download --relative-path models/diffusion_models --filename Wan2_2-I2V-A14B-HIGH_fp8_e4m3fn_scaled_KJ.safetensors --url  "https://huggingface.co/Kijai/WanVideo_comfy_fp8_scaled/resolve/main/I2V/Wan2_2-I2V-A14B-HIGH_fp8_e4m3fn_scaled_KJ.safetensors"
-comfy model download --relative-path models/diffusion_models --filename Wan2_2-I2V-A14B-LOW_fp8_e4m3fn_scaled_KJ.safetensors --url "https://huggingface.co/Kijai/WanVideo_comfy_fp8_scaled/resolve/main/I2V/Wan2_2-I2V-A14B-LOW_fp8_e4m3fn_scaled_KJ.safetensors?download=true"
+comfy model download --relative-path models/diffusion_models --filename Wan2_2-I2V-A14B-LOW_fp8_e4m3fn_scaled_KJ.safetensors --url "https://huggingface.co/Kijai/WanVideo_comfy_fp8_scaled/resolve/main/I2V/Wan2_2-I2V-A14B-LOW_fp8_e4m3fn_scaled_KJ.safetensors"
 comfy model download --relative-path models/vae --filename wan_2.1_vae.safetensors --url "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/vae/wan_2.1_vae.safetensors"
 comfy model download --relative-path models/clip --filename umt5_xxl_fp8_e4m3fn_scaled.safetensors --url "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors"
 comfy model download --relative-path models/loras --filename Wan_2_2_I2V_A14B_HIGH_lightx2v_MoE_distill_lora_rank_64_bf16.safetensors --url "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/LoRAs/Wan22_Lightx2v/Wan_2_2_I2V_A14B_HIGH_lightx2v_MoE_distill_lora_rank_64_bf16.safetensors"
