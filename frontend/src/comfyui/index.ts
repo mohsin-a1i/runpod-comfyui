@@ -1,4 +1,4 @@
-import workflow from "./workflow.json";
+import workflow from "./workflows/SVI-triple-ksampler-api.json";
 
 const headers = {
     "Content-Type": "application/json",

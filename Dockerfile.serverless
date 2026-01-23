@@ -12,7 +12,7 @@ RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 ENV PATH="/root/.local/bin:$PATH"
 
 # Configure python environment
-COPY dependencies .
+COPY backend/dependencies/sageattention-2.2.0-cp312-cp312-linux_x86_64.whl .
 RUN uv venv --python 3.12 && \
     uv pip install --upgrade pip && \
     uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128 && \
