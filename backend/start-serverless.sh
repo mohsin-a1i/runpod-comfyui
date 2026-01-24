@@ -42,27 +42,14 @@ comfy-manager-set-mode offline || echo "worker-comfyui - Could not set ComfyUI-M
 : "${COMFY_LOG_LEVEL:=INFO}"
 : "${COMFY_OUTPUT_DIR:=output}"
 
-# Serve the API and don't shutdown the container
-if [ "$SERVE_API_LOCALLY" == "true" ]; then
-    python -u comfyui/main.py --listen \
-        --use-sage-attention \
-        --disable-auto-launch \
-        --disable-metadata \
-        --output-directory "${COMFY_OUTPUT_DIR}" \
-        --verbose "${COMFY_LOG_LEVEL}" \
-        --log-stdout &
+python -u comfyui/main.py \
+    --fast fp16_accumulation \
+    --use-sage-attention \
+    --disable-auto-launch \
+    --disable-metadata \
+    --output-directory "${COMFY_OUTPUT_DIR}" \
+    --verbose "${COMFY_LOG_LEVEL}" \
+    --log-stdout &
 
-    echo "worker-comfyui: Starting RunPod Handler"
-    python -u handler.py --rp_serve_api --rp_api_host=0.0.0.0
-else
-    python -u comfyui/main.py \
-        --use-sage-attention \
-        --disable-auto-launch \
-        --disable-metadata \
-        --output-directory "${COMFY_OUTPUT_DIR}" \
-        --verbose "${COMFY_LOG_LEVEL}" \
-        --log-stdout &
-
-    echo "worker-comfyui: Starting RunPod Handler"
-    python -u handler.py
-fi
+echo "worker-comfyui: Starting RunPod Handler"
+python -u handler.py
