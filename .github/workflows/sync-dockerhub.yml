@@ -1,0 +1,44 @@
+name: Mirror GHCR image to Docker Hub
+
+on:
+  workflow_run:
+    workflows: ["Build and Push ComfyUI Docker Image to GHCR"]
+    types:
+      - completed
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: read
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Log in to GHCR
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Pull image from GHCR
+        run: |
+          docker pull ghcr.io/mohsin-a1i/comfyui:cu128-py312-sageattention
+
+      - name: Retag image for Docker Hub
+        run: |
+          docker tag \
+            ghcr.io/mohsin-a1i/comfyui:cu128-py312-sageattention \
+            ${{ secrets.DOCKERHUB_USERNAME }}/comfyui:cu128-py312-sageattention
+
+      - name: Push image to Docker Hub
+        run: |
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/comfyui:cu128-py312-sageattention
