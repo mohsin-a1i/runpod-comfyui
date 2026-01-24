@@ -26,7 +26,7 @@ ENV PATH="/.venv/bin:$PATH"
 # Install ComfyUI
 RUN /usr/bin/yes | comfy --workspace comfyui install --version 0.9.2 --skip-torch-or-directml --nvidia && \
 comfy node install comfyui-kjnodes rgthree-comfy
-COPY workflows/ comfyui/user/default/workflows/
+COPY backend/workflows/ comfyui/user/default/workflows/
 
 COPY backend/start.sh start.sh
 RUN chmod +x start.sh
